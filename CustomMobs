@@ -1,0 +1,34 @@
+//I coded this like 20 mins ago, the custom mobs are in another Class :P
+
+package ArcticMMORPG;
+
+import org.bukkit.Location;
+import org.bukkit.Material;
+import org.bukkit.World;
+import org.bukkit.block.Chest;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+import org.bukkit.event.Listener;
+
+ 
+public class CustomMobs implements Listener {
+       
+        
+	public boolean onCommand(CommandSender s, Command cmd, String cl, String[] args) {
+		Player p = (Player) s; 
+	
+    if (cmd.getName().equalsIgnoreCase("weakzombie")) {
+    	if (p.hasPermission("essentials.op"));
+    	p.sendMessage("RPG Mob Sign created!");
+    	Location pl = p.getLocation();
+    	World world = p.getWorld();
+    	Location signLocation = new Location(world, pl.getX(),
+    			pl.getY() - 1, pl.getZ());
+    	
+    signLocation.getBlock().setType(Material.SIGN);
+        Sign sign = (Sign) signLocation.getBlock().getState();
+    }
+return false;
+        }
+     }
